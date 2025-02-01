@@ -346,7 +346,6 @@ uint16_t get_address(CPU* cpu, uint8_t mode)
     case AM_IND:
         abs_addr = fetch_word(cpu);
         address = cpu->mem[abs_addr] | (cpu->mem[(abs_addr & 0xFF00) | ((abs_addr + 1) & 0xFF)] << 8);
-
         break;
     case AM_REL:
         address = cpu->PC + (int8_t)fetch_byte(cpu);
@@ -354,7 +353,6 @@ uint16_t get_address(CPU* cpu, uint8_t mode)
 
     default:
         break;
-
     }
     return address;
 }
@@ -486,7 +484,6 @@ void execute_instruction(CPU* cpu) {
         cpu->A |= cpu->mem[address];
         set_zero_and_negative_flags(cpu, cpu->A);
         break;
-
         // --- 1x ---
     case 0x10: // BPL rel
         address = get_address(cpu, AM_REL);
@@ -908,7 +905,6 @@ void execute_instruction(CPU* cpu) {
         cpu->A ^= cpu->mem[address];
         set_zero_and_negative_flags(cpu, cpu->A);
         break;
-
         // --- 5x ---
     case 0x50: // BVC rel
         address = get_address(cpu, AM_REL);
