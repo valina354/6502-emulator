@@ -19,7 +19,7 @@ RANDOM:         ;gets associated with this label
 *=$00ff       ;location of the keyboard input
 KEYBORD:        ;gets associated with this label
 
-*=$400         ;beginning of screen memory (adjusted for 128x128 screen)
+*=$200         ;beginning of screen memory
 SCREEN:         ;gets associated with this label
 
 ; normally this emulator starts execution at $600.  We messed up the
